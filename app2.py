@@ -16,12 +16,10 @@ from langchain.document_loaders import TextLoader
 from langchain.indexes import VectorstoreIndexCreator
 
 load_dotenv()
-os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 import requests
 
-os.getenv("HUGGINGFACE_API_KEY")
 API_URL = "https://api-inference.huggingface.co/models/openai/whisper-tiny"
 headers = {"Authorization": os.getenv("HUGGINGFACE_API_KEY")}
 
