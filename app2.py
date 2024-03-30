@@ -16,12 +16,15 @@ from langchain.document_loaders import TextLoader
 from langchain.indexes import VectorstoreIndexCreator
 
 load_dotenv()
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+# genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+genai.configure(api_key=os.getenv(st.secrets["GOOGLE_API_KEY"]))
+
 
 import requests
 
 API_URL = "https://api-inference.huggingface.co/models/openai/whisper-tiny"
-headers = {"Authorization": os.getenv("HUGGINGFACE_API_KEY")}
+# headers = {"Authorization": os.getenv("HUGGINGFACE_API_KEY")}
+headers = {"Authorization": os.getenv(st.secrets["HUGGINGFACE_API_KEY"])}
 
 
 # PyTube function for YouTube video
